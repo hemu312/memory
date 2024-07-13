@@ -37,7 +37,7 @@ fn main() {
                 let main_window = main_window_weak.unwrap();
                 main_window.set_disable_tiles(true);
                 let tiles_model = tiles_model.clone();
-                slint::Timer::single_shot(std::time::Duration::from_secs(1), move || {
+                slint::Timer::single_shot(std::time::Duration::from_millis(500), move || {
                     main_window.set_disable_tiles(false);
                     t1.image_visible = false;
                     tiles_model.set_row_data(t1_idx, t1);
