@@ -49,8 +49,8 @@ component MemoryTile inherits Rectangle {
 }
 
 export component MainWindow inherits Window {
-    width: 296px;
-    height: 296px;
+    width: 306px;
+    height: self.width;
 
     callback check_if_pair_solved(); // Added
     in property <bool> disable_tiles; // Added
@@ -66,8 +66,8 @@ export component MainWindow inherits Window {
         { image: @image-url("../icons/video.png") },
     ];
     for tile[i] in memory_tiles : MemoryTile {
-        x: mod(i, 4) * 74px;
-        y: floor(i / 4) * 74px;
+        x: 10px + mod(i, 4) * 74px;
+        y: 10px + floor(i / 4) * 74px;
         width: 64px;
         height: 64px;
         icon: tile.image;
