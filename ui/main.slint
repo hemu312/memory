@@ -12,6 +12,7 @@ component MemoryTile inherits Rectangle {
 
     height: 64px;
     width: 64px;
+    border-radius: 10px;
     background: solved ? #34CE57 : #3960D5;
     animate background { duration: 800ms; }
 
@@ -27,6 +28,8 @@ component MemoryTile inherits Rectangle {
         x: 0px;
         width: open_curtain ? 0px : (parent.width / 2);
         height: parent.height;
+        border-bottom-left-radius: parent.border-radius;
+        border-top-left-radius: parent.border-radius;
         animate width { duration: 250ms; easing: ease-in; }
     }
 
@@ -36,6 +39,8 @@ component MemoryTile inherits Rectangle {
         x: open_curtain ? parent.width : (parent.width / 2);
         width: open_curtain ? 0px : (parent.width / 2);
         height: parent.height;
+        border-bottom-right-radius: parent.border-radius;
+        border-top-right-radius: parent.border-radius;
         animate width { duration: 250ms; easing: ease-in; }
         animate x { duration: 250ms; easing: ease-in; }
     }
@@ -49,6 +54,8 @@ component MemoryTile inherits Rectangle {
 }
 
 export component MainWindow inherits Window {
+    title: "Memory";
+    icon: @image-url("../icons/tile_logo.png");
     width: 306px;
     height: self.width;
 
